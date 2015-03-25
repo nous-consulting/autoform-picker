@@ -2,7 +2,7 @@ Package.describe({
   name: 'chompomonim:autoform-picker',
   summary: 'Collection document picker with document creation possibility.',
   version: '0.2.0',
-  git: '',
+  git: 'https://github.com/nous-consulting/autoform-picker',
   documentation: 'README.md'
 });
 

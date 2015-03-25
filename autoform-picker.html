@@ -1,0 +1,49 @@
+<template name="clientPicker">
+  <div class="client-picker">
+    <div class="client-select">
+      <input name="search-client" disabled={{inline_form}} {{atts}} value={{picker_value}} class="form-control search" />
+      <span class="glyphicon glyphicon-remove-circle clear-search">
+        {{#if afFieldIsInvalid name=this.name}}
+          <span class="help-block"> {{{afFieldMessage name=this.name}}}</span>
+        {{/if}}
+      </span>
+    </div>
+
+    {{#unless inline_form}}
+      {{#if opened}}
+        <ul class="autocomplete">
+          <li class="{{active_new}} new-client">
+            <span>Create: </span>
+            <span>{{search_query}} &nbsp;</span>
+            <a class="btn btn-default btn-xs pull-right add-client">
+              <span>Add new</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </li>
+
+          {{#each autocomplete_items}}
+            <li class="{{active}}">
+              <a href="#" class="client-item">
+                <span class="name">{{choose}}</span>
+              </a>
+            </li>
+          {{/each}}
+
+        </ul>
+      {{/if}}
+
+    {{else}}
+      {{> UI.dynamic template=inline_form_name}}
+    {{/unless}}
+  </div>
+</template>
+
+<template name="toicPicker_inline_form">
+  <div class="inline-add">
+    <a class="back btn btn-default btn-xs">
+      <i class="fa fa-angle-left"></i>
+      <span>Back</span>
+    </a>
+    {{> quickForm collection=this.atts.collection id="toicPickerInsert" fields=this.atts.fields type="insert"}}
+  </div>
+</template>

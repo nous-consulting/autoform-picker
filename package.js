@@ -1,7 +1,7 @@
 Package.describe({
   name: 'chompomonim:autoform-picker',
   summary: 'Collection document picker with document creation possibility.',
-  version: '0.2.0',
+  version: '0.2.1',
   git: 'https://github.com/nous-consulting/autoform-picker',
   documentation: 'README.md'
 });
@@ -11,6 +11,9 @@ Package.onUse(function(api) {
   api.use('templating@1.0.0');
   api.use('blaze@2.0.0');
   api.use('coffeescript');
+  api.use('reactive-var');
+  api.use('twbs:bootstrap@3.3.4');
+  api.use('matb33:collection-hooks@0.7.7');
   api.use('aldeed:template-extension@3.4.3');
   api.use('aldeed:autoform@5.0.0');
   api.addFiles([

@@ -1,7 +1,7 @@
 // Search component
 
 .autocomplete {
-  margin-left: 40px;
+  margin-left: 0;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
   padding-left: 0;
 }

@@ -2,11 +2,7 @@
   <div class="client-picker">
     <div class="client-select">
       <input name="search-client" disabled={{inline_form}} {{atts}} value={{picker_value}} class="form-control search" />
-      <span class="glyphicon glyphicon-remove-circle clear-search">
-        {{#if afFieldIsInvalid name=this.name}}
-          <span class="help-block"> {{{afFieldMessage name=this.name}}}</span>
-        {{/if}}
-      </span>
+      <span class="glyphicon glyphicon-remove-circle clear-search"></span>
     </div>
 
     {{#unless inline_form}}

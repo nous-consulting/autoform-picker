@@ -17,7 +17,7 @@ The closest solution would use `aldeed:autoform-select2`, but it's not good when
 - Do filter/search on server and then send to client only max 20 filtered results.
 - Uses quickForm to create new entry into DB (you can also create own form with autoForm if you need).
 
-## Usage manuale
+## Usage manual
 
 1. To have possibility to search on server and have needed indexes, you'll need to add `@searchIn.register "CollectionName" right after creating it. E.g.:
  

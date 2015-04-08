@@ -19,9 +19,11 @@ The closest solution would use `aldeed:autoform-select2`, but it's not good when
 
 ## Usage manual
 
+1. Install packages: `meteor add chompomonim:autoform-picker`
+
 1. To have possibility to search on server and have needed indexes, you'll need to add `@searchIn.register "CollectionName" right after creating it. E.g.:
  
-``` CoffeeScript
+ ``` CoffeeScript
 class @ClientBase
   name: -> "#{@first_name} #{@last_name}"
   ...
@@ -37,7 +39,7 @@ if Meteor.isServer
     contacts: (@contacts?.emails ? []).join(' ')
 ```
 
-2. In your schema you should add `toic-picker` autoform type. 
+1. In your schema you should add `toic-picker` autoform type. 
  
 ```CoffeeScript
 @SomeSchema = new SimpleSchema

@@ -1,4 +1,4 @@
-@buildIndex = (doc, projection) ->
+buildIndex = (doc, projection) ->
   if Meteor.server
     fields = projection.call doc
     uc = Meteor.npmRequire 'unidecode'
@@ -47,6 +47,9 @@
     throw new Error "#{collection_name} is not collection in global scope."
 
   collection.before.insert (userId, doc) ->
+    buildIndex doc, index_by
+
+  collection.before.update (userId, doc) ->
     buildIndex doc, index_by
 
   @searchIn.collections[collection_name] = collection

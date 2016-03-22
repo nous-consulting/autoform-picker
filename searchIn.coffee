@@ -22,9 +22,11 @@ buildIndex = (doc, projection) ->
       inverse[inv-1] = pos
 
     search = search.join(' ').toLowerCase()
-    doc.search_strings = search
-    doc.positions = positions
-    doc.inverse = inverse
+    return {
+      search_strings: search
+      positions: positions
+      inverse: inverse
+    }
 
 @searchIn = (collection_name, txt, filter) ->
   collection = searchIn.collections[collection_name]
@@ -47,10 +49,12 @@ buildIndex = (doc, projection) ->
     throw new Error "#{collection_name} is not collection in global scope."
 
   collection.before.insert (userId, doc) ->
-    buildIndex doc, index_by
+    Object.assign doc, buildIndex(doc, index_by)
 
-  collection.before.update (userId, doc) ->
-    buildIndex doc, index_by
+  collection.before.update (userId, doc, field_names, modifier) ->
+    modifier.$set ?= {}
+    transformed = Object.assign doc, modifier.$set
+    Object.assign modifier.$set, buildIndex(transformed, index_by)
 
   @searchIn.collections[collection_name] = collection
 

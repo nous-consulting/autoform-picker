@@ -5,7 +5,7 @@ import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
 import { AutoForm } from 'meteor/aldeed:autoform'
 import { Blaze } from 'meteor/blaze'
-import { getCollectionByName } from './utils'
+import { getCollectionByName } from 'meteor/nous:search-in'
 
 
 Template.itemPicker.onCreated(function() {
@@ -52,7 +52,7 @@ Template.itemPicker.onCreated(function() {
             } else {
                 Meteor.call('searchIn', _collection, txt, filter.get(), (error, result) => {
                     if (error) {
-                        alert(error.reason)
+                        console.error(error.reason)
                     } else {
                         _.each(result, function (r) {
                             r.__proto__ = _class.prototype

@@ -1,7 +1,7 @@
 Package.describe({
   name: 'nous:autoform-picker',
   summary: 'Picker is a select component for autoform with new database entrance creation possibility.',
-  version: '1.0.1',
+  version: '1.0.2',
   git: 'https://github.com/nous-consulting/autoform-picker',
   documentation: 'README.md'
 });

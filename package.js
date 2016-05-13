@@ -1,31 +1,36 @@
 Package.describe({
-  name: 'chompomonim:autoform-picker',
-  summary: 'Collection document picker with document creation possibility.',
-  version: '0.4.0',
+  name: 'nous:autoform-picker',
+  summary: 'Picker is a select component for autoform with new database entrance creation possibility.',
+  version: '1.0.0',
   git: 'https://github.com/nous-consulting/autoform-picker',
   documentation: 'README.md'
 });
 
+Npm.depends({
+  lodash: '4.12.0',
+  jquery: '2.2.3'
+});
+
 Package.onUse(function(api) {
-  api.versionsFrom('1.2.1');
-  api.use('templating');
-  api.use('blaze');
-  api.use('coffeescript');
-  api.use('reactive-var');
-  api.use('twbs:bootstrap@3.3.4');
-  api.use('matb33:collection-hooks@0.7.7');
-  api.use('aldeed:template-extension@3.4.3');
-  api.use('meteorhacks:npm@1.3.0');
-  api.use('aldeed:autoform@5.0.0');
+  api.versionsFrom('1.3.2.4');
+  api.use([
+    'ecmascript',
+    'templating',
+    'blaze',
+    'reactive-var',
+
+    'twbs:bootstrap@3.3.4',
+    'aldeed:template-extension@4.0.0',
+    'aldeed:autoform@5.0.0',
+    'nous:search-in@0.1.0',
+    'lai:collection-extensions@0.2.1_1'
+  ]);
   api.addFiles([
-    'autoform-picker.html',
-    'autoform-picker.coffee',
-    'autoform-picker.css',
-    'utils.coffee'
+    'src/template.html',
+    'src/styles.css'
     ], 'client');
-  api.addFiles([
-    'searchIn.coffee',
-    ], 'server');
+  api.mainModule('src/main.js', 'client');
+  api.mainModule('src/methods.js', 'server');
 });
 
 Package.onTest(function(api) {

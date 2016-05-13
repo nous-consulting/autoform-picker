@@ -1,4 +1,4 @@
-<template name="clientPicker">
+<template name="itemPicker">
   <div class="client-picker">
     <div class="client-select">
       <input name="search-client" disabled={{inline_form}} {{atts}} value={{picker_value}} class="form-control search" />
@@ -29,7 +29,7 @@
       {{/if}}
 
     {{else}}
-      {{> UI.dynamic template=inline_form_name}}
+      {{> Template.dynamic template=inline_form_name data=form_data}}
     {{/unless}}
   </div>
 </template>
@@ -40,6 +40,6 @@
       <i class="fa fa-angle-left"></i>
       <span>Back</span>
     </a>
-    {{> quickForm collection=this.atts.collection id="toicPickerInsert" fields=this.atts.fields type="insert"}}
+    {{> quickForm collection=collection id="toicPickerInsert" fields=fields type="insert"}}
   </div>
 </template>

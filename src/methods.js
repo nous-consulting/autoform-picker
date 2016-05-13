@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { searchIn } from 'meteor/nous:search-in'
-import { getCollectionByName } from './utils'
+import { searchIn, getCollectionByName } from 'meteor/nous:search-in'
 
 // Register method to access search function from frontend.
 Meteor.methods({

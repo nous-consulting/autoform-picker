@@ -1,7 +1,7 @@
 Package.describe({
   name: 'nous:autoform-picker',
   summary: 'Picker is a select component for autoform with new database entrance creation possibility.',
-  version: '1.0.0',
+  version: '1.0.1',
   git: 'https://github.com/nous-consulting/autoform-picker',
   documentation: 'README.md'
 });
@@ -22,8 +22,7 @@ Package.onUse(function(api) {
     'twbs:bootstrap@3.3.4',
     'aldeed:template-extension@4.0.0',
     'aldeed:autoform@5.0.0',
-    'nous:search-in@0.1.0',
-    'lai:collection-extensions@0.2.1_1'
+    'nous:search-in@0.1.0'
   ]);
   api.addFiles([
     'src/template.html',
@@ -35,6 +34,6 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('chompomonim:autoform-picker');
+  api.use('nous:autoform-picker');
   api.addFiles('autoform-picker-tests.js');
 });
